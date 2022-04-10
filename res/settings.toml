@@ -3,6 +3,7 @@
     width = 80
     min_rooms = 5
     room_buffer = 1
+    max_wall_hardness = 10
 
 [room]
     min_width = 3

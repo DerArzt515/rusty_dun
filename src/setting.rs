@@ -4,8 +4,8 @@ use std::fmt;
 
 #[derive(Deserialize)]
 pub struct Settings { 
-    dungeon: DungeonSettings,
-    room: RoomSettings,
+    pub dungeon: DungeonSettings,
+    pub room: RoomSettings,
 }
 
 impl fmt::Debug for Settings {
@@ -20,8 +20,10 @@ impl fmt::Debug for Settings {
 
 #[derive(Deserialize)]
 pub struct DungeonSettings {
-    height: u16,
-    width: u16,
+    pub height: usize,
+    pub width: usize,
+    pub max_wall_hardness: usize,
+    pub room_buffer: usize,
 }
 
 impl fmt::Debug for DungeonSettings {
@@ -30,14 +32,16 @@ impl fmt::Debug for DungeonSettings {
             .debug_struct("DungeonSettings")
             .field("height", &self.height)
             .field("width", &self.width)
+            .field("max_wall_hardness", &self.max_wall_hardness)
+            .field("room_buffer", &self.room_buffer)
             .finish()
     }
 }
 
 #[derive(Deserialize)]
 pub struct RoomSettings {
-    min_width: u16,
-    min_height: u16,
+    pub min_width: usize,
+    pub min_height: usize,
 }
 
 
